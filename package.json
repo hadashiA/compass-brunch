@@ -1,12 +1,12 @@
 {
-  "name": "sass-brunch",
-  "version": "1.4.1",
-  "description": "Adds Sass support to brunch.",
-  "author": "Paul Miller (http://paulmillr.com/)",
-  "homepage": "https://github.com/brunch/sass-brunch",
+  "name": "compass-brunch",
+  "version": "1.0.0",
+  "description": "Adds Compass support to brunch.",
+  "author": "Anthony Short (http://anthonyshort.me/)",
+  "homepage": "https://github.com/anthonyshort/compass-brunch",
   "repository": {
     "type": "git",
-    "url": "git@github.com:brunch/sass-brunch.git"
+    "url": "git@github.com:anthonyshort/compass-brunch.git"
   },
   "main": "./lib/index",
   "scripts": {
