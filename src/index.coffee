@@ -19,15 +19,7 @@ module.exports = class CompassCompiler
         console.error "Compass config file doesn't exist"
         console.error @config.paths.compass_config
 
-  compile: (data, path, callback) ->
-    result = ''
-    error = null
-    options = [
-      'compile',
-      '--config',
-      sysPath.join process.cwd(), @config.paths.compass_config
-    ]
-    compass = child_process.spawn 'compass', options
-    compass.on 'exit', (code) -> 
-      callback error, ''
-        
+    configPath = sysPath.join process.cwd(), @config.paths.compass_config
+
+    child_process.exec "compass compile --config #{configPath}", (error, stdout, stderr) ->
+      console.log "exec error: " + error  if error isnt null
