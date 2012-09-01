@@ -15,7 +15,7 @@ module.exports = class CompassCompiler
         console.error "You need to have Compass on your system"
         console.error "Execute `gem install compass`"
 
-    fs.exists @config.paths.compass_config, (exists) ->
+    fs.exists @config.paths.compass_config, (exists) =>
       unless exists
         console.error "Compass config file doesn't exist"
         console.error @config.paths.compass_config
