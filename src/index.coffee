@@ -1,16 +1,15 @@
-{spawn, exec} = require 'child_process'
-sysPath = require 'path'
+child_process = require 'child_process'
 fs = require 'fs'
+sysPath = require 'path'
 
 module.exports = class CompassCompiler
   brunchPlugin: yes
   type: 'stylesheet'
   extension: 'scss'
   pattern: /\.s[ac]ss$/
-  _bin: 'compass'
 
   constructor: (@config) ->
-    exec "#{@_bin} --version", (error, stdout, stderr) =>
+    child_process.exec "compass --version", (error, stdout, stderr) =>
       if error
         console.error "You need to have Compass on your system"
         console.error "Execute `gem install compass`"
@@ -23,22 +22,12 @@ module.exports = class CompassCompiler
   compile: (data, path, callback) ->
     result = ''
     error = null
-
     options = [
       'compile',
-      @config.paths.root,
-      path,
-      '--force',
       '--config',
-      @config.paths.compass_config
+      sysPath.join process.cwd(), @config.paths.compass_config
     ]
-
-    compass = spawn @_bin, options
-
-    onExit = (code) -> callback error, result
-    if process.version.slice(0, 4) is 'v0.6'
-      compass.on 'exit', onExit
-    else
-      compass.on 'close', onExit
-
-  getDependencies: (data, path, callback) =>
+    compass = child_process.spawn 'compass', options
+    compass.on 'exit', (code) -> 
+      callback error, ''
+        
