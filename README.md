@@ -15,7 +15,7 @@ Add your Compass config file to your project and point your config.coffee to it:
 ```coffee
 exports.config =
   paths:
-    compass_config: './compass.rb'
+    compass: './compass.rb'
 ```
 
 It will now compile your project using `compass compile` whenever a sass or scss file in your project changes.

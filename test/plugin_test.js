@@ -8,7 +8,7 @@ describe('Plugin', function() {
     plugin = new Plugin({
       paths: {
         root: '.',
-        compass_config: './test/compass.rb'
+        compass: './test/compass.rb'
       }
     });
   });
