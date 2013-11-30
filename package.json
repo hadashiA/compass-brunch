@@ -1,6 +1,6 @@
 {
-  "name": "compass-brunch",
-  "version": "0.0.2",
+  "name": "compass-bundler-brunch",
+  "version": "0.0.3",
   "description": "Adds Compass support to brunch.",
   "author": "Anthony Short (http://anthonyshort.me/)",
   "homepage": "https://github.com/anthonyshort/compass-brunch",
