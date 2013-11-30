@@ -9,6 +9,8 @@ module.exports = class CompassCompiler
   pattern: /\.s[ac]ss$/
 
   constructor: (@config) ->
+
+  compile: (data, path, callback) -> 
     child_process.exec "compass --version", (error, stdout, stderr) =>
       if error
         console.error "You need to have Compass on your system"
@@ -23,3 +25,6 @@ module.exports = class CompassCompiler
 
     child_process.exec "compass compile --config #{configPath}", (error, stdout, stderr) ->
       console.log "exec error: " + error  if error isnt null
+
+    callback();
+    
